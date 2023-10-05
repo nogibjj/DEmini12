@@ -30,23 +30,7 @@ Jeremy_Tan_IDS706_Week6/
 └── test_main.py
 ```
 ## Purpose of project
-The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks. This pipeline will involve tasks such as extracting data from FiveThirtyEight's public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. You can see the results [here](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/blob/main/query_log.md) or here:
-
-Certainly! Here's your data formatted as a Markdown table:
-
-| server           | opponent             | avg_seconds_before_next_point | total_matches_played |
-|------------------|---------------------|-----------------------------|---------------------|
-| Nick Kyrgios      | Andy Murray          | 14.15789474                 | 76                  |
-| Roger Federer     | Damir Dzumhur        | 16.25                       | 64                  |
-| Andy Murray       | Joao Sousa           | 23.47826087                 | 46                  |
-| Nicolas Almagro   | Rafael Nadal        | 21.59090909                 | 44                  |
-| Bernard Tomic     | Thanasi Kokkinakis  | 20.65789474                 | 38                  |
-| Benoit Paire      | Tomas Berdych       | 14.33333333                 | 36                  |
-| Rafael Nadal      | Nicolas Almagro     | 29                          | 32                  |
-| Carlos Berlocq    | Richard Gasquet     | 28.875                      | 32                  |
-| Borna Coric       | Tommy Robredo       | 26.77419355                 | 31                  |
-| Pablo Andujar     | Philipp Kohlschreiber | 30.93548387               | 31                  |
-
+The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks. This pipeline will involve tasks such as extracting data from FiveThirtyEight's public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. 
 ## Preparation
 1. open codespaces 
 2. wait for container to be built and virtual environment to be activated with requirements.txt installed 
@@ -67,7 +51,21 @@ SELECT t1.server, t1.opponent,
     ORDER BY total_matches_played DESC
     LIMIT 10
 ```
-The query retrieves data from two tables (default.servetimesdb and default.eventtimesdb), performs an **inner join** based on the id column, **calculates the average and count** for each unique combination of server and opponent, **orders the results by total_matches_played in descending order**, and limits the output to the top 10 rows. This query can help identify the most played matches grouped by the combination of server and opponent.
+The query retrieves data from two tables (default.servetimesdb and default.eventtimesdb), performs an **inner join** based on the id column, **calculates the average and count** for each unique combination of server and opponent, **orders the results by total_matches_played in descending order**, and limits the output to the top 10 rows. This query can help identify the most played matches grouped by the combination of server and opponent. You can see the results [here](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/blob/main/query_log.md) or here:
+
+| server           | opponent             | avg_seconds_before_next_point | total_matches_played |
+|------------------|---------------------|-----------------------------|---------------------|
+| Nick Kyrgios      | Andy Murray          | 14.15789474                 | 76                  |
+| Roger Federer     | Damir Dzumhur        | 16.25                       | 64                  |
+| Andy Murray       | Joao Sousa           | 23.47826087                 | 46                  |
+| Nicolas Almagro   | Rafael Nadal        | 21.59090909                 | 44                  |
+| Bernard Tomic     | Thanasi Kokkinakis  | 20.65789474                 | 38                  |
+| Benoit Paire      | Tomas Berdych       | 14.33333333                 | 36                  |
+| Rafael Nadal      | Nicolas Almagro     | 29                          | 32                  |
+| Carlos Berlocq    | Richard Gasquet     | 28.875                      | 32                  |
+| Borna Coric       | Tommy Robredo       | 26.77419355                 | 31                  |
+| Pablo Andujar     | Philipp Kohlschreiber | 30.93548387               | 31                  |
+
 
 ## Check format and test errors 
 1. Format code `make format`
