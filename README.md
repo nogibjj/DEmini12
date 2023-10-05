@@ -1,8 +1,8 @@
-[![CI](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week5/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week5/actions/workflows/cicd.yml)
+[![CI](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/actions/workflows/cicd.yml)
 ## Jeremy_Tan_IDS706_Week6
 ### File Structure
 ```
-Jeremy_Tan_IDS706_Week5/
+Jeremy_Tan_IDS706_Week6/
 ├── .devcontainer/
 │   ├── devcontainer.json
 │   └── Dockerfile
