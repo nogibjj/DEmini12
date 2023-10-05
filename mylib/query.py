@@ -1,7 +1,6 @@
 """Query the database"""
-
-from databricks import sql
 import os
+from databricks import sql
 from dotenv import load_dotenv
 
 

@@ -1,10 +1,10 @@
 """
 Transforms and Loads data into the local SQLite3 database
 """
+import os
 from databricks import sql
 import pandas as pd
 from dotenv import load_dotenv
-import os
 
 
 # load the csv file and insert into databricks
