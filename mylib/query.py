@@ -1,4 +1,4 @@
-"""Query the database"""
+"""Query the database from a db connection to Azure Databricks"""
 import os
 from databricks import sql
 from dotenv import load_dotenv
@@ -30,5 +30,5 @@ def general_query(query):
         c = connection.cursor()
         c.execute(query)
         result = c.fetchall()
-
+    c.close()
     log_query(f"{query}", result)

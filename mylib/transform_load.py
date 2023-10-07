@@ -1,5 +1,5 @@
 """
-Transforms and Loads data into the local SQLite3 database
+Transforms and Loads data into Azure Databricks
 """
 import os
 from databricks import sql
@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 # load the csv file and insert into databricks
 def load(dataset="data/serve_times.csv", dataset2="data/event_times.csv"):
-    """Transforms and Loads data into the local SQLite3 database"""
+    """Transforms and Loads data into the local databricks database"""
     df = pd.read_csv(dataset, delimiter=",", skiprows=1)
     df2 = pd.read_csv(dataset2, delimiter=",", skiprows=1)
     load_dotenv()
