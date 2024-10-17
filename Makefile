@@ -27,7 +27,7 @@ generate_and_push:
 
 	# Add, commit, and push the generated files to GitHub
 	@if [ -n "$$(git status --porcelain)" ]; then \
-		git config --local user.email "action@github.com"; \
+		git config --local user.email "Sam@github.com"; \
 		git config --local user.name "GitHub Action"; \
 		git add .; \
 		git commit -m "Add SQL log"; \
@@ -40,12 +40,11 @@ extract:
 	python main.py extract
 
 
-PYTHON := /opt/anaconda3/bin/python
+#PYTHON := /opt/anaconda3/bin/python
 
 transform_load:
-	$(PYTHON) -m pip install -r requirements.txt
-	$(PYTHON) main.py transform_load
-
+#	$(PYTHON) -m pip install -r requirements.txt
+#	$(PYTHON) main.py transform_load
 	python main.py transform_load
 
 query:
