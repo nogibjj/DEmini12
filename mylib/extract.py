@@ -7,9 +7,6 @@ JSON or CSV formats tend to work well
 import os
 import pandas as pd
 
-import os
-import pandas as pd
-
 def extract(dataset1="ankulsharma150/marketing-analytics-project", 
             dataset2="prasertk/top-1000-instagram-influencers", 
             directory="data"):
@@ -32,7 +29,7 @@ def extract(dataset1="ankulsharma150/marketing-analytics-project",
     csv_path1 = os.path.join(directory, "instagram-Data.csv")
     if not os.path.exists(csv_path1):
         raise FileNotFoundError(f"{csv_path1} not found. Ensure the download was successful.")
-    df1 = pd.read_csv(csv_path1)
+    # df1 = pd.read_csv(csv_path1)
 
     # # Subset the first 121 rows
     # subset_path1 = os.path.join(directory, "Instagram-Data-Subset.csv")
@@ -43,14 +40,14 @@ def extract(dataset1="ankulsharma150/marketing-analytics-project",
     csv_path2 = os.path.join(directory, "instagram_global_top_1000.csv")
     if not os.path.exists(csv_path2):
         raise FileNotFoundError(f"{csv_path2} not found. Ensure the download was successful.")
-    df2 = pd.read_csv(csv_path2)
+    # df2 = pd.read_csv(csv_path2)
 
     # # Subset and save it as a new file
     # subset_path2 = os.path.join(directory, "Top-1000-Influencers-Subset.csv")
     # df2.head(121).to_csv(subset_path2, index=False)
     # print(f"Subset saved to {subset_path2}")
 
-
+    return csv_path1, csv_path2
 
 # Example usage
 if __name__ == "__main__":
