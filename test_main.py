@@ -37,13 +37,13 @@ def test_general_query():
             "python",
             "main.py",
             "general_query",
-            """SELECT t1.server, t1.opponent,
-                AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point,
-                COUNT(*) as total_matches_played
-            FROM default.servetimesdb t1
-            JOIN default.eventtimesdb t2 ON t1.id = t2.id
-            GROUP BY t1.server, t1.opponent
-            ORDER BY total_matches_played DESC
+            """SELECT t1.country, t1.category,
+                AVG(t1.Followers) as avg_followers,
+                COUNT(*) as total_Account
+            FROM default.InstagramData t1
+            JOIN default.InstagramTop1000 t2 ON t1.id = t2.id
+            GROUP BY t1.country, t1.category
+            ORDER BY Followers DESC
             LIMIT 10""",
         ],
         capture_output=True,
@@ -57,3 +57,4 @@ if __name__ == "__main__":
     test_extract()
     test_transform_load()
     test_general_query()
+

@@ -1,5 +1,5 @@
-[![CI](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/actions/workflows/cicd.yml)
-## Jeremy_Tan_IDS706_Week6
+
+## IDS706_Week6
 ### File Structure
 ```
 Jeremy_Tan_IDS706_Week6/
@@ -11,8 +11,8 @@ Jeremy_Tan_IDS706_Week6/
 ├── .gitignore
 ├── AD_flow.svg
 ├── data/
-│   ├── serve_times.csv
-│   └── event_times.csv
+│   ├── instagram-Data.csv
+│   └── instagram_global_top_1000.csv
 ├── Dockerfile
 ├── LICENSE
 ├── main.py
@@ -42,29 +42,18 @@ The goal of this project is to create an ETL-Query pipeline utilizing a cloud se
 ## Complex Query
 Explanations of query:
 ```sql
-SELECT t1.server, t1.opponent,
-        AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point,
-        COUNT(*) as total_matches_played
-    FROM default.servetimesdb t1
-    JOIN default.eventtimesdb t2 ON t1.id = t2.id
-    GROUP BY t1.server, t1.opponent
-    ORDER BY total_matches_played DESC
+    SELECT t1.country, t1.category,
+        AVG(t1.Followers) as avg_followers,
+        COUNT(*) as total_Account
+    FROM default.InstagramData t1
+    JOIN default.InstagramTop1000 t2 ON t1.id = t2.id
+    GROUP BY t1.country, t1.category
+    ORDER BY Followers DESC
     LIMIT 10
 ```
-The query retrieves data from two tables (default.servetimesdb and default.eventtimesdb), performs an **inner join** based on the id column, **calculates the average and count** for each unique combination of server and opponent, **orders the results by total_matches_played in descending order**, and limits the output to the top 10 rows. This query can help identify the most played matches grouped by the combination of server and opponent. You can see the results [here](https://github.com/nogibjj/Jeremy_Tan_IDS706_Week6/blob/main/query_log.md) or here:
+The query retrieves data from two tables (default.InstagramData and default.InstagramTop1000), performs an **inner join** based on the id column, **calculates the average and count** for each unique combination of server and opponent, **orders the results by total_matches_played in descending order**, and limits the output to the top 10 rows. This query can help identify the most played matches grouped by the combination of server and opponent. You can see the results :
 
-| server           | opponent             | avg_seconds_before_next_point | total_matches_played |
-|------------------|---------------------|-----------------------------|---------------------|
-| Nick Kyrgios      | Andy Murray          | 14.15789474                 | 76                  |
-| Roger Federer     | Damir Dzumhur        | 16.25                       | 64                  |
-| Andy Murray       | Joao Sousa           | 23.47826087                 | 46                  |
-| Nicolas Almagro   | Rafael Nadal        | 21.59090909                 | 44                  |
-| Bernard Tomic     | Thanasi Kokkinakis  | 20.65789474                 | 38                  |
-| Benoit Paire      | Tomas Berdych       | 14.33333333                 | 36                  |
-| Rafael Nadal      | Nicolas Almagro     | 29                          | 32                  |
-| Carlos Berlocq    | Richard Gasquet     | 28.875                      | 32                  |
-| Borna Coric       | Tommy Robredo       | 26.77419355                 | 31                  |
-| Pablo Andujar     | Philipp Kohlschreiber | 30.93548387               | 31                  |
+      |
 
 
 ## Check format and test errors 
