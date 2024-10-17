@@ -5,7 +5,7 @@ JSON or CSV formats tend to work well
 
 
 import os
-import pandas as pd
+# import pandas as pd
 
 def extract(dataset1="ankulsharma150/marketing-analytics-project", 
             dataset2="prasertk/top-1000-instagram-influencers", 
