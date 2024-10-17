@@ -37,13 +37,13 @@ def test_general_query():
             "python",
             "main.py",
             "general_query",
-            """SELECT t1.country, t1.category,
+            """SELECT t1.country, t1.category, t1.category,
                 AVG(t1.Followers) as avg_followers,
                 COUNT(*) as total_Account
             FROM default.InstagramData t1
-            JOIN default.InstagramTop1000 t2 ON t1.id = t2.id
+            JOIN default.InstagramTop1000 t2 ON t1.Account = t2.Account
             GROUP BY t1.country, t1.category
-            ORDER BY Followers DESC
+            ORDER BY avg_followers DESC
             LIMIT 10""",
         ],
         capture_output=True,

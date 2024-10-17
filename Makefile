@@ -41,6 +41,5 @@ extract:
 
 transform_load: 
 	python main.py transform_load
-
 query:
-	python main.py general_query "SELECT t1.server, t1.opponent, AVG(t1.seconds_before_next_point) as avg_seconds_before_next_point, COUNT(*) as total_matches_played FROM default.servetimesdb t1 JOIN default.eventtimesdb t2 ON t1.id = t2.id GROUP BY t1.server, t1.opponent ORDER BY total_matches_played DESC LIMIT 10"
+	python main.py general_query "SELECT t1.country, t1.category, t1.category,AVG(t1.Followers) as avg_followers,COUNT(*) as total_Account FROM default.InstagramData t1 JOIN default.InstagramTop1000 t2 ON t1.Account = t2.Account GROUP BY t1.country, t1.category ORDER BY avg_followers DESC LIMIT 10"
