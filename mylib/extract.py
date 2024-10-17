@@ -28,7 +28,7 @@ def extract(dataset1="ankulsharma150/marketing-analytics-project",
     # Handle first dataset: Instagram Data
     csv_path1 = os.path.join(directory, "instagram-Data.csv")
     if not os.path.exists(csv_path1):
-        raise FileNotFoundError(f"{csv_path1} not found. Ensure the download was successful.")
+        raise FileNotFoundError(f"{csv_path1} not found. ")
     # df1 = pd.read_csv(csv_path1)
 
     # # Subset the first 121 rows
@@ -39,7 +39,7 @@ def extract(dataset1="ankulsharma150/marketing-analytics-project",
     # Handle second dataset: Top 1000 Influencers
     csv_path2 = os.path.join(directory, "instagram_global_top_1000.csv")
     if not os.path.exists(csv_path2):
-        raise FileNotFoundError(f"{csv_path2} not found. Ensure the download was successful.")
+        raise FileNotFoundError(f"{csv_path2} not found. ")
     # df2 = pd.read_csv(csv_path2)
 
     # # Subset and save it as a new file
