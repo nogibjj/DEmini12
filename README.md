@@ -54,14 +54,14 @@ Explanations of query:
 ```
 - SELECT Clause:
 
-- t1.country: Retrieves the country from the InstagramData table.
-t1.category, t1.category: Appears to have a duplicate column. This might be a typo, as you likely meant to select only one t1.category.
-AVG(t1.Followers) AS avg_followers: Calculates the average number of followers for each group of country and category.
-COUNT(*) AS total_Account: Counts the total number of accounts in each group.
+- t1.country: Retrieves the country from the InstagramData table. t1.category, t1.category: Appears to have a duplicate column. This might be a typo, as you likely meant to select only one t1.category.
+AVG(t1.Followers) AS avg_followers: Calculates the average number of followers for each group of country and category. COUNT(*) AS total_Account: Counts the total number of accounts in each group.
 
 - Groups the data by country and category to calculate aggregate values (like AVG and COUNT).
 - Sorts the results in descending order by the average number of followers.
 - Limits the output to the top 10 results with the highest average followers.
+   <img width="1176" alt="image" src="https://github.com/user-attachments/assets/9737d736-aaa0-4b8e-a4d0-ab55c6ec47e8">
+
 
 ## Check format and test errors 
 1. Format code `make format`
