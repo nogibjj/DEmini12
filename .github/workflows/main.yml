@@ -8,20 +8,19 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Python and Dependencies
+    - name: Install Dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y python3-pip
         pip install -r requirements.txt
 
-    - name: Install Kaggle CLI
+    - name: Configure Kaggle API
       run: |
-        pip install kaggle
         mkdir -p ~/.kaggle
         echo "$KAGGLE_JSON" > ~/.kaggle/kaggle.json
         chmod 600 ~/.kaggle/kaggle.json
-
-    - name: Run Make Extract
-      run: make extract
       env:
         KAGGLE_JSON: ${{ secrets.KAGGLE_JSON }}
+
+    - name: Extract Data
+      run: make extract
