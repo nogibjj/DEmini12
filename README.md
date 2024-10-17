@@ -3,16 +3,15 @@
 ## IDS706_Week6
 ### File Structure
 ```
-Jeremy_Tan_IDS706_Week6/
+DEmini6/
 ├── .devcontainer/
 │   ├── devcontainer.json
 │   └── Dockerfile
 ├── .github/
-│   └── workflows/cicd.yml
 ├── .gitignore
 ├── AD_flow.svg
 ├── data/
-│   ├── instagram-Data.csv
+│   ├── instagram_Data.csv
 │   └── instagram_global_top_1000.csv
 ├── Dockerfile
 ├── LICENSE
@@ -31,7 +30,7 @@ Jeremy_Tan_IDS706_Week6/
 └── test_main.py
 ```
 ## Purpose of project
-The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks. This pipeline will involve tasks such as extracting data from FiveThirtyEight's public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. 
+The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks. This pipeline will involve tasks such as extracting data from Kaggle public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. 
 ## Preparation
 1. open codespaces 
 2. wait for container to be built and virtual environment to be activated with requirements.txt installed 
@@ -43,19 +42,25 @@ The goal of this project is to create an ETL-Query pipeline utilizing a cloud se
 ## Complex Query
 Explanations of query:
 ```sql
-    SELECT t1.country, t1.category,
-        AVG(t1.Followers) as avg_followers,
-        COUNT(*) as total_Account
-    FROM default.InstagramData t1
-    JOIN default.InstagramTop1000 t2 ON t1.id = t2.id
-    GROUP BY t1.country, t1.category
-    ORDER BY Followers DESC
-    LIMIT 10
+    SELECT t1.country, t1.category, t1.category,
+                AVG(t1.Followers) as avg_followers,
+                COUNT(*) as total_Account
+            FROM default.InstagramData t1
+            JOIN default.InstagramTop1000 t2 ON t1.Account = t2.Account
+            GROUP BY t1.country, t1.category
+            ORDER BY avg_followers DESC
+            LIMIT 10
 ```
-The query retrieves data from two tables (default.InstagramData and default.InstagramTop1000), performs an **inner join** based on the id column, **calculates the average and count** for each unique combination of server and opponent, **orders the results by total_matches_played in descending order**, and limits the output to the top 10 rows. This query can help identify the most played matches grouped by the combination of server and opponent. You can see the results :
+- SELECT Clause:
 
-      |
+- t1.country: Retrieves the country from the InstagramData table.
+t1.category, t1.category: Appears to have a duplicate column. This might be a typo, as you likely meant to select only one t1.category.
+AVG(t1.Followers) AS avg_followers: Calculates the average number of followers for each group of country and category.
+COUNT(*) AS total_Account: Counts the total number of accounts in each group.
 
+- Groups the data by country and category to calculate aggregate values (like AVG and COUNT).
+- Sorts the results in descending order by the average number of followers.
+- Limits the output to the top 10 results with the highest average followers.
 
 ## Check format and test errors 
 1. Format code `make format`
