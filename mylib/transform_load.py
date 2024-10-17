@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 sys.path.append('/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages')
 
 def load(
-    dataset="data/instagram-Data.csv", 
+    dataset="data/instagram_Data.csv", 
     dataset2="data/instagram_global_top_1000.csv"
 ):
     """Loads data into Databricks from CSV files."""

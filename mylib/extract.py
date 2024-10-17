@@ -26,7 +26,7 @@ def extract(dataset1="ankulsharma150/marketing-analytics-project",
     download_dataset(dataset2)
 
     # Handle first dataset: Instagram Data
-    csv_path1 = os.path.join(directory, "instagram-Data.csv")
+    csv_path1 = os.path.join(directory, "instagram_Data.csv")
     if not os.path.exists(csv_path1):
         raise FileNotFoundError(f"{csv_path1} not found. ")
     # df1 = pd.read_csv(csv_path1)
