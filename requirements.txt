@@ -8,6 +8,7 @@ requests==2.26.0
 ruff==0.0.284
 # add necessary databricks req
 pandas
+numpy
 python-dotenv
 databricks-sql-connector
 
