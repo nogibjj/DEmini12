@@ -1,3 +1,4 @@
+[![CI](https://github.com/nogibjj/DEmini6/actions/workflows/cicd.yml/badge.svg)](https://github.com/nogibjj/DEmini6/actions/workflows/cicd.yml)
 
 ## IDS706_Week6
 ### File Structure
