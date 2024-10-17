@@ -2,15 +2,12 @@
 Transforms and Loads data into Azure Databricks
 """
 import sys
-sys.path.append('/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages')
-
-
 import os
 import pandas as pd
 from databricks import sql
 import numpy as np
 from dotenv import load_dotenv
-
+sys.path.append('/Library/Frameworks/Python.framework/Versions/3.12/lib/python3.12/site-packages')
 
 def load(
     dataset="data/instagram-Data.csv", 
