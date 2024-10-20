@@ -13,11 +13,11 @@
 		}
 	  },
 
-	// Configure tool-specific properties.
+
 	"customizations": {
 		// Configure properties specific to VS Code.
 		"vscode": {
-			// Set *default* container specific settings.json values on container create.
+
 			"settings": { 
 				"go.toolsManagement.checkForUpdates": "local",
 				"go.useLanguageServer": true,
@@ -72,8 +72,7 @@
 		"--init"
 	],
 	
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+
 
 	// "oryx build" will automatically install your dependencies and attempt to build your project
 	//"postCreateCommand": "oryx build -p virtualenv_name=.venv --log-file /tmp/oryx-build.log --manifest-dir /tmp || echo 'Could not auto-build. Skipping.'"

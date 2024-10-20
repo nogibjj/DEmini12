@@ -2,33 +2,7 @@
 [![CI](https://github.com/nogibjj/DEmini6/actions/workflows/cicd.yml/badge.svg?branch=main)](https://github.com/nogibjj/DEmini6/actions/workflows/cicd.yml)
 
 ## IDS706_Week6
-### File Structure
-```
-DEmini6/
-├── .devcontainer/
-│   ├── devcontainer.json
-│   └── Dockerfile
-├── .github/
-├── .gitignore
-├── data/
-│   ├── instagram_Data.csv
-│   └── instagram_global_top_1000.csv
-├── Dockerfile
-├── LICENSE
-├── main.py
-├── Makefile
-├── mylib/
-│   ├── __init__.py
-│   ├── __pycache__/
-│   ├── extract.py
-│   ├── query.py
-│   └── transform_load.py
-├── query_log.md
-├── README.md
-├── requirements.txt
-├── setup.sh
-└── test_main.py
-```
+
 ## Purpose of project
 The goal of this project is to create an ETL-Query pipeline utilizing a cloud service like Databricks. This pipeline will involve tasks such as extracting data from Kaggle public datasets, cleaning and transforming the data, then loading it into Databricks SQL Warehouse. Once the data is in place, we'll be able to run complex queries that may involve tasks like joining tables, aggregating data, and sorting results. This will be accomplished by establishing a database connection to Databricks. 
 ## Preparation
@@ -67,7 +41,33 @@ AVG(t1.Followers) AS avg_followers: Calculates the average number of followers f
 2. Lint code `make lint`
 3. Test coce `make test`
 
-
+### File Structure
+```
+DEmini6/
+├── .devcontainer/
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── .github/
+├── .gitignore
+├── data/
+│   ├── instagram_Data.csv
+│   └── instagram_global_top_1000.csv
+├── Dockerfile
+├── LICENSE
+├── main.py
+├── Makefile
+├── mylib/
+│   ├── __init__.py
+│   ├── __pycache__/
+│   ├── extract.py
+│   ├── query.py
+│   └── transform_load.py
+├── query_log.md
+├── README.md
+├── requirements.txt
+├── setup.sh
+└── test_main.py
+```
 ## References 
 1. https://github.com/databricks/databricks-sql-python
 2. https://github.com/nogibjj/cloud-database-LAB

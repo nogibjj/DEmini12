@@ -138,3 +138,4 @@ dmypy.json
 
 # Delete 
 .DS_store
+setup.sh
