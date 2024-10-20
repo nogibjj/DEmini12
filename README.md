@@ -10,7 +10,6 @@ DEmini6/
 │   └── Dockerfile
 ├── .github/
 ├── .gitignore
-├── AD_flow.svg
 ├── data/
 │   ├── instagram_Data.csv
 │   └── instagram_global_top_1000.csv
@@ -68,8 +67,6 @@ AVG(t1.Followers) AS avg_followers: Calculates the average number of followers f
 2. Lint code `make lint`
 3. Test coce `make test`
 
-## Simple Vizualization of Process
-![ETLQ](adflow.svg)
 
 ## References 
 1. https://github.com/databricks/databricks-sql-python
