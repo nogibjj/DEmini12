@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 from mlflow.models.signature import ModelSignature
 from mlflow.types.schema import Schema, ColSpec
+from mlflow.models.utils import _enforce_schema
 
 
 def main():
@@ -56,29 +57,22 @@ def main():
         mlflow.log_param("data_path", data_path)
         mlflow.log_metric("accuracy", accuracy)
         mlflow.sklearn.log_model(
-            model, "model", input_example=input_example, signature=signature
+            model,
+            "model",
+            input_example=input_example,
+            signature=signature
         )
 
         # Generate the model URI within the MLflow run context
         logged_model_uri = f"runs:/{run.info.run_id}/model"
 
-        # Step 7: Validate serving input
+        # Step 7: Validate input example
         try:
-            from mlflow.models import (
-                validate_serving_input,
-                convert_input_example_to_serving_input,
-            )
-
-            # Convert input example to serving format
-            serving_input = convert_input_example_to_serving_input(input_example)
-
-            # Validate serving input
-            validate_serving_input(
-                model_uri=logged_model_uri, serving_input=serving_input
-            )
+            # Validate input example format
+            _enforce_schema(input_example, signature.inputs)
             print("Input example validated successfully.")
         except Exception as e:
-            print("Input example validation failed:", e)
+            print(f"Input example validation failed: {e}")
 
 
 if __name__ == "__main__":

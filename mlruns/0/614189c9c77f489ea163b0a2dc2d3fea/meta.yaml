@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/momowang/Documents/Coding/DEmini12/mlruns/0/614189c9c77f489ea163b0a2dc2d3fea/artifacts
+end_time: 1732329538401
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 614189c9c77f489ea163b0a2dc2d3fea
+run_name: rumbling-stag-158
+run_uuid: 614189c9c77f489ea163b0a2dc2d3fea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732329536123
+status: 3
+tags: []
+user_id: momowang
