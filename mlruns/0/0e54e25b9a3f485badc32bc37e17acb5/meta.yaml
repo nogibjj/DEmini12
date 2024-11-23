@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/momowang/Documents/Coding/DEmini12/mlruns/0/0e54e25b9a3f485badc32bc37e17acb5/artifacts
+end_time: 1732333693574
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 0e54e25b9a3f485badc32bc37e17acb5
+run_name: nebulous-lark-416
+run_uuid: 0e54e25b9a3f485badc32bc37e17acb5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732333690251
+status: 3
+tags: []
+user_id: momowang
