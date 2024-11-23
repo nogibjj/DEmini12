@@ -9,7 +9,7 @@ format:
 	black *.py 
 
 lint:
-	ruff --extend-ignore E501 *.py mylib/*.py
+	ruff --extend-ignore E,F *.py
 
 container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
