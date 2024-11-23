@@ -43,6 +43,9 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install dependencies
+        run: |
+          pip install ruff
 
       - name: Lint code
         run: make lint
