@@ -9,7 +9,8 @@ format:
 	black *.py 
 
 lint:
-	ruff --ignore E,F *.py
+	pylint --disable=E,F,C,W *.py
+
 
 container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
