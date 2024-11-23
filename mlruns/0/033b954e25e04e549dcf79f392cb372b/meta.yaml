@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/033b954e25e04e549dcf79f392cb372b/artifacts
+end_time: 1732336326757
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 033b954e25e04e549dcf79f392cb372b
+run_name: angry-snail-788
+run_uuid: 033b954e25e04e549dcf79f392cb372b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732336324932
+status: 3
+tags: []
+user_id: codespace

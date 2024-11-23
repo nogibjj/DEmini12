@@ -1,9 +1,12 @@
 name: CI
+
 on:
   push:
-    branches: [ "main" ]
+    branches: 
+      - "main"
   pull_request:
-    branches: [ "main" ]
+    branches: 
+      - "main"
   workflow_dispatch:
 
 permissions:
@@ -12,19 +15,54 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: install packages
-        run: make install
-      - name: lint
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+
+      - name: Install dependencies
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+
+      - name: Lint code
         run: make lint
-      - name: run model
+
+
+      - name: Run model
         run: make ml_run
-      - name: test
+
+
+      - name: Run tests
         run: make test
-      - name: format
+
+
+      - name: Format code
         run: make format
-      - name: generate_and_push
+
+
+      - name: Generate and push artifacts
         run: make generate_and_push
-      - name: deploy
+
+
+      - name: Deploy application
         run: make deploy
