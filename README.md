@@ -11,7 +11,7 @@
 2. wait for container to be built and virtual environment to be activated with requirements.txt installed 
 3. Model Training: -Split the data into training and testing sets. -Train the model on the training set.
 
-
+![alt text](image.png)
 
 ### Preparation: 
 1. git clone the repo
