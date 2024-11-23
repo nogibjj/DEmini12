@@ -1,0 +1,29 @@
+artifact_path: model
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.1
+mlflow_version: 2.18.0
+model_size_bytes: 18101
+model_uuid: 06294e2872ed40e5a6754064508d5dd7
+run_id: eac8d70812f3457bb42f55869c5c9f4e
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "Engagement avg", "required": true}]'
+  outputs: '[{"type": "integer", "name": "Rank", "required": true}]'
+  params: null
+utc_time_created: '2024-11-23 02:00:32.407678'

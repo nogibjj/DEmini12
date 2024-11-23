@@ -36,16 +36,5 @@ generate_and_push:
 		echo "No changes to commit. Skipping commit and push."; \
 	fi
 
-extract:
-	python main.py extract
-
-
-#PYTHON := /opt/anaconda3/bin/python
-
-transform_load:
-#	$(PYTHON) -m pip install -r requirements.txt
-#	$(PYTHON) main.py transform_load
-	python main.py transform_load
-
-query:
-	python main.py general_query "SELECT t1.country, t1.category, t1.category,AVG(t1.Followers) as avg_followers,COUNT(*) as total_Account FROM default.InstagramData t1 JOIN default.InstagramTop1000 t2 ON t1.Account = t2.Account GROUP BY t1.country, t1.category ORDER BY avg_followers DESC LIMIT 10"
+ml_run:
+	python main.py

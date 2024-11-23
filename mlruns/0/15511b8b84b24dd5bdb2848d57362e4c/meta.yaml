@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/momowang/Documents/Coding/DEmini12/mlruns/0/15511b8b84b24dd5bdb2848d57362e4c/artifacts
+end_time: 1731957012863
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 15511b8b84b24dd5bdb2848d57362e4c
+run_name: zealous-mouse-926
+run_uuid: 15511b8b84b24dd5bdb2848d57362e4c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1731957010765
+status: 3
+tags: []
+user_id: momowang
