@@ -61,10 +61,7 @@ def main():
         mlflow.log_metric("accuracy", accuracy)
         mlflow.sklearn.log_model(model, "mlruns/0")
         mlflow.sklearn.log_model(
-            model,
-            "model",
-            input_example=input_example,
-            signature=signature
+            model, "model", input_example=input_example, signature=signature
         )
         print(f"Run logged to MLflow with run_id: {run.info.run_id}")
 
