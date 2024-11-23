@@ -42,10 +42,7 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-
-      - name: Install dependencies
-        run: |
-          pip install ruff
+          pip install pylint
 
       - name: Lint code
         run: make lint
