@@ -31,5 +31,5 @@ generate_and_push:
 	$(PYTHON) test_main.py
 
 ml_run:
-	mkdir -p mlruns && chmod -R u+w mlruns && \
+	$(PYTHON) -m pip install mlflow && \
 	MLFLOW_TRACKING_URI="file:./mlruns" $(PYTHON) main.py

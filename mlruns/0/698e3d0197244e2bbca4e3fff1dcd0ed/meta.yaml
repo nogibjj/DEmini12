@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/698e3d0197244e2bbca4e3fff1dcd0ed/artifacts
+end_time: 1732489143482
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 698e3d0197244e2bbca4e3fff1dcd0ed
+run_name: incongruous-toad-34
+run_uuid: 698e3d0197244e2bbca4e3fff1dcd0ed
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732489141592
+status: 3
+tags: []
+user_id: codespace

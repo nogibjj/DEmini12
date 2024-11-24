@@ -7,15 +7,12 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 
 
-os.environ["MLFLOW_TRACKING_URI"] = "file:mlruns"
-os.environ["MLFLOW_ARTIFACT_URI"] = "file:mlruns"
 
-print(f"MLFLOW_TRACKING_URI: {os.getenv('MLFLOW_TRACKING_URI')}")
-print(f"MLFLOW_ARTIFACT_URI: {os.getenv('MLFLOW_ARTIFACT_URI')}")
+tracking_uri = "file:" + os.path.join(os.getcwd(), "mlruns")
+os.environ["MLFLOW_TRACKING_URI"] = tracking_uri
+mlflow.set_tracking_uri(tracking_uri)
 
-os.makedirs("./mlruns", exist_ok=True)
-os.chmod("./mlruns", 0o777)
-
+print(f"MLFLOW_TRACKING_URI: {mlflow.get_tracking_uri()}")
 
 def main():
     # Set up MLflow tracking URI
