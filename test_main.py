@@ -12,7 +12,8 @@ def test_dataset():
     Test that the dataset is available
     """
     assert os.path.exists("data/instagram_Data.csv")
-    df = pd.read_csv("data/instagram_Data.csv")
+    # df = pd.read_csv("data/instagram_Data.csv")
+    df = pd.read_csv("data/instagram_Data.csv", delimiter=",")
     assert df.shape[0] > 0
     assert df.shape[1] > 0
 

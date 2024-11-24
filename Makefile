@@ -3,7 +3,8 @@ install:
 		pip install --no-cache-dir -r requirements.txt
 
 test:
-	python -m pytest -vv --cov=main --cov=mylib test_*.py
+	# python -m pytest -vv --cov=main --cov=mylib test_*.py
+	python -m pytest --cov=main --cov=mylib test_*.pyd
 
 format:	
 	black *.py 
