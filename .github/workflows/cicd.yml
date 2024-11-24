@@ -46,6 +46,10 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pylint
+          
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-cov
   
       - name: Run Pylint
         run: $(which pylint) --disable=E,F,C,W *.py
