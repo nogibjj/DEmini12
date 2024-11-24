@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/989bb345442a4eeea08b139efa58760a/artifacts
+end_time: 1732488248866
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 989bb345442a4eeea08b139efa58760a
+run_name: unruly-gull-178
+run_uuid: 989bb345442a4eeea08b139efa58760a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732488247008
+status: 3
+tags: []
+user_id: codespace

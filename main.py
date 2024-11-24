@@ -7,8 +7,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 
 
-os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
-os.environ["MLFLOW_ARTIFACT_URI"] = "file:./mlruns"
+os.environ["MLFLOW_TRACKING_URI"] = "file:mlruns"
+os.environ["MLFLOW_ARTIFACT_URI"] = "file:mlruns"
+
 print(f"MLFLOW_TRACKING_URI: {os.getenv('MLFLOW_TRACKING_URI')}")
 print(f"MLFLOW_ARTIFACT_URI: {os.getenv('MLFLOW_ARTIFACT_URI')}")
 
