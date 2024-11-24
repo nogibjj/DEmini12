@@ -47,10 +47,15 @@ jobs:
         run: |
           pip install pylint
           
+      - name: Set PYTHONPATH
+        run: export PYTHONPATH=$PYTHONPATH:$(pwd)
+
       - name: Install dependencies
         run: |
           pip install pytest pytest-cov
-  
+
+
+
       - name: Run Pylint
         run: $(which pylint) --disable=E,F,C,W *.py
 
