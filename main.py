@@ -11,6 +11,7 @@ os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
 os.environ["MLFLOW_ARTIFACT_URI"] = "file:./mlruns"
 print(f"MLFLOW_TRACKING_URI: {os.getenv('MLFLOW_TRACKING_URI')}")
 print(f"MLFLOW_ARTIFACT_URI: {os.getenv('MLFLOW_ARTIFACT_URI')}")
+
 os.makedirs("./mlruns", exist_ok=True)
 os.chmod("./mlruns", 0o777)
 
@@ -46,9 +47,9 @@ def main():
         mlflow.log_metric("accuracy", accuracy)
 
         # Use relative path for artifact_path
+        artifact_path = "./mlruns/models"
+        os.makedirs(artifact_path, exist_ok=True)
         mlflow.sklearn.log_model(model, artifact_path="models")
-        print("Model logged successfully.")
-
 
 if __name__ == "__main__":
     main()
