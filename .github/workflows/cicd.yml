@@ -58,9 +58,3 @@ jobs:
           ls -la ./mlruns
           python -c "import os; print(os.getcwd())"
 
-      - name: Run MLflow model
-        run: |
-          source venv/bin/activate
-          export MLFLOW_TRACKING_URI=file:./mlruns
-          export MLFLOW_ARTIFACT_URI=file:./mlruns
-          venv/bin/python main.py
