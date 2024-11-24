@@ -6,6 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 
+
 def main():
     # Set up MLflow tracking URI
     mlflow.set_tracking_uri("file:///workspaces/DEmini12/mlruns")
@@ -39,6 +40,7 @@ def main():
         # Use relative path for artifact_path
         mlflow.sklearn.log_model(model, artifact_path="models")
         print("Model logged successfully.")
+
 
 if __name__ == "__main__":
     main()
