@@ -59,8 +59,8 @@ jobs:
         
       - name: Ensure write permissions for mlruns
         run: |
-          mkdir -p $(pwd)/mlruns
-          chmod -R u+w $(pwd)/mlruns
+          mkdir -p mlruns
+          chmod -R u+w mlruns
       
       - name: Run MLflow model
         env:

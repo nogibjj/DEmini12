@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/f37c8bc9d3a641cf85513007bec7d5dc/artifacts
+end_time: 1732483781075
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f37c8bc9d3a641cf85513007bec7d5dc
+run_name: defiant-deer-360
+run_uuid: f37c8bc9d3a641cf85513007bec7d5dc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732483779165
+status: 3
+tags: []
+user_id: codespace
