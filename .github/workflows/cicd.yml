@@ -54,17 +54,21 @@ jobs:
           source venv/bin/activate
           pytest --cov=main --cov=mylib test_*.py
 
-      - name: Set MLFLOW_TRACKING_URI
-        run: echo "MLFLOW_TRACKING_URI=file:$(pwd)/mlruns" >> $GITHUB_ENV
-        
-      - name: Ensure write permissions for mlruns
+      - name: Prepare mlruns directory
         run: |
           mkdir -p mlruns
           chmod -R u+w mlruns
-      
-      - name: Run MLflow model
-        env:
-          MLFLOW_TRACKING_URI: "file:$(pwd)/mlruns"
+  
+      - name: Set MLflow environment variables
         run: |
-          source venv/bin/activate
-          python main.py
+          echo "MLFLOW_TRACKING_URI=file:./mlruns" >> $GITHUB_ENV
+          echo "MLFLOW_ARTIFACT_URI=file:./mlruns" >> $GITHUB_ENV
+
+      - name: Debug MLflow paths
+        run: |
+          echo "MLFLOW_TRACKING_URI=$MLFLOW_TRACKING_URI"
+          echo "MLFLOW_ARTIFACT_URI=$MLFLOW_ARTIFACT_URI"
+          ls -l $(pwd)/mlruns
+
+      - name: Run MLflow model
+        run: make ml_run
