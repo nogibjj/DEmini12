@@ -49,12 +49,19 @@ jobs:
       - name: Set MLflow environment variables
         run: |
           echo "MLFLOW_TRACKING_URI=file:./mlruns" >> $GITHUB_ENV
+          echo "MLFLOW_ARTIFACT_URI=file:./mlruns" >> $GITHUB_ENV
 
       - name: Debug MLflow paths
         run: |
           echo "MLFLOW_TRACKING_URI=$MLFLOW_TRACKING_URI"
-          ls -al ./mlruns
-
+          echo "MLFLOW_ARTIFACT_URI=$MLFLOW_ARTIFACT_URI"
+          ls -l ./mlruns
+          whoami
+          id
+      - name: Check Python environment
+        run: |
+          source venv/bin/activate
+          python -m pip show mlflow
       - name: Run MLflow model
         run: |
           source venv/bin/activate
