@@ -42,7 +42,9 @@ jobs:
           pip install pylint pytest pytest-cov
 
       - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+        run: | 
+          cho "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
+          export PYTHONPATH=$PYTHONPATH:$(pwd)
 
       - name: Run Pylint
         run: |
@@ -68,6 +70,9 @@ jobs:
         run: |
           source venv/bin/activate
           make deploy
+          
+      - name: Install MLflow
+        run: pip install mlflow
 
       - name: Run MLflow model
         run: |

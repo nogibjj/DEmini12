@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/1a0e9cfc1ca448d29daad07de7eabd40/artifacts
+end_time: 1732482862494
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 1a0e9cfc1ca448d29daad07de7eabd40
+run_name: secretive-sow-740
+run_uuid: 1a0e9cfc1ca448d29daad07de7eabd40
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732482860593
+status: 3
+tags: []
+user_id: codespace
