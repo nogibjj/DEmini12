@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/beebe9c134ef4c469b6e07906489de20/artifacts
+end_time: 1732483457094
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: beebe9c134ef4c469b6e07906489de20
+run_name: enthused-bear-45
+run_uuid: beebe9c134ef4c469b6e07906489de20
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732483455077
+status: 3
+tags: []
+user_id: codespace

@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/6fcd2fa0a71a48aea9bc0117b0fdc0c1/artifacts
+end_time: 1732483323662
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6fcd2fa0a71a48aea9bc0117b0fdc0c1
+run_name: melodic-dove-89
+run_uuid: 6fcd2fa0a71a48aea9bc0117b0fdc0c1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732483321786
+status: 3
+tags: []
+user_id: codespace

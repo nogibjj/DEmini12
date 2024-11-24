@@ -38,4 +38,6 @@ generate_and_push:
 	fi
 
 ml_run:
+	mkdir -p mlruns
+	chmod -R u+w mlruns
 	MLFLOW_TRACKING_URI=file:./mlruns python main.py
