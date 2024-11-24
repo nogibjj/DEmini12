@@ -44,9 +44,9 @@ jobs:
           pip install -r requirements.txt
           pip install pylint
 
-      # - name: Install dependencies
-      #   run: |
-      #     pip install pylint
+      - name: Install dependencies
+        run: |
+          pip install pylint
   
       - name: Run Pylint
         run: $(which pylint) --disable=E,F,C,W *.py
@@ -66,6 +66,6 @@ jobs:
 
       - name: Deploy application
         run: make deploy
-        
+
       - name: Run model
         run: make ml_run
