@@ -39,12 +39,10 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pylint pytest pytest-cov
+          pip install pylint pytest pytest-cov mlflow
 
       - name: Set PYTHONPATH
-        run: | 
-          cho "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
-          export PYTHONPATH=$PYTHONPATH:$(pwd)
+        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
 
       - name: Run Pylint
         run: |
@@ -54,27 +52,10 @@ jobs:
       - name: Run tests
         run: |
           source venv/bin/activate
-          python -m pytest --cov=main --cov=mylib test_*.py
-
-      - name: Format code
-        run: |
-          source venv/bin/activate
-          black *.py
-
-      - name: Generate and push artifacts
-        run: |
-          source venv/bin/activate
-          make generate_and_push
-
-      - name: Deploy application
-        run: |
-          source venv/bin/activate
-          make deploy
-          
-      - name: Install MLflow
-        run: pip install mlflow
+          pytest --cov=main --cov=mylib test_*.py
 
       - name: Run MLflow model
         run: |
+          source venv/bin/activate
           export MLFLOW_TRACKING_URI="file:./mlruns"
-          make ml_run
+          python main.py
