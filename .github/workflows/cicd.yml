@@ -55,15 +55,24 @@ jobs:
         run: |
           echo "MLFLOW_TRACKING_URI=$MLFLOW_TRACKING_URI"
           echo "MLFLOW_ARTIFACT_URI=$MLFLOW_ARTIFACT_URI"
+          ls -ld ./mlruns
           ls -l ./mlruns
           whoami
           id
+          echo "Current Directory: $(pwd)"
+
       - name: Check Python environment
         run: |
           source venv/bin/activate
-          python -m pip show mlflow
+          which python
+          python --version
+          pip list | grep mlflow
+          
+      - name: Debug environment variables
+        run: printenv | grep MLFLOW
+
       - name: Run MLflow model
         run: |
-          source venv/bin/activate
+          ./venv/bin/python -m pip show mlflow
           export MLFLOW_TRACKING_URI=file:./mlruns
-          make ml_run
+          ./venv/bin/python main.py
