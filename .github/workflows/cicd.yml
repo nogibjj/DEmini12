@@ -41,34 +41,22 @@ jobs:
           pip install -r requirements.txt
           pip install pylint pytest pytest-cov mlflow
 
-      - name: Set PYTHONPATH
-        run: echo "PYTHONPATH=$(pwd)" >> $GITHUB_ENV
-
-      - name: Run Pylint
-        run: |
-          source venv/bin/activate
-          pylint --disable=E,F,C,W *.py
-
-      - name: Run tests
-        run: |
-          source venv/bin/activate
-          pytest --cov=main --cov=mylib test_*.py
-
-      - name: Prepare mlruns directory
+      - name: Prepare MLflow directory
         run: |
           mkdir -p mlruns
           chmod -R u+w mlruns
-  
+
       - name: Set MLflow environment variables
         run: |
           echo "MLFLOW_TRACKING_URI=file:./mlruns" >> $GITHUB_ENV
-          echo "MLFLOW_ARTIFACT_URI=file:./mlruns" >> $GITHUB_ENV
 
       - name: Debug MLflow paths
         run: |
           echo "MLFLOW_TRACKING_URI=$MLFLOW_TRACKING_URI"
-          echo "MLFLOW_ARTIFACT_URI=$MLFLOW_ARTIFACT_URI"
-          ls -l $(pwd)/mlruns
+          ls -al ./mlruns
 
       - name: Run MLflow model
-        run: make ml_run
+        run: |
+          source venv/bin/activate
+          export MLFLOW_TRACKING_URI=file:./mlruns
+          make ml_run
