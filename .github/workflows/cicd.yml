@@ -17,6 +17,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.8"
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
 
 
       - name: Install dependencies
@@ -26,7 +41,7 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           pip install pylint
-          pip install pytest pytest-cov
+          pip install pytest
 
       - name: Install dependencies
         run: |
