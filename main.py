@@ -7,10 +7,16 @@ from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
 
 
+# Set a relative path for MLflow Tracking URI
+os.environ["MLFLOW_TRACKING_URI"] = "file:./mlruns"
+
+# Ensure this path exists and is writable
+os.makedirs("./mlruns", exist_ok=True)
+
 def main():
     # Set up MLflow tracking URI
-    mlflow.set_tracking_uri("file:///workspaces/DEmini12/mlruns")
-    print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
+    # mlflow.set_tracking_uri("file:///workspaces/DEmini12/mlruns")
+    # print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
 
     # Load data
     df = pd.read_csv("data/instagram_Data.csv", delimiter=",")

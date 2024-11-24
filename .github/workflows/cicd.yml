@@ -69,7 +69,7 @@ jobs:
           source venv/bin/activate
           make deploy
 
-      - name: Run model
+      - name: Run MLflow model
         run: |
-          source venv/bin/activate
+          export MLFLOW_TRACKING_URI="file:./mlruns"
           make ml_run

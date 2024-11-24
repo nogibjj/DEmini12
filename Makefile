@@ -38,4 +38,4 @@ generate_and_push:
 	fi
 
 ml_run:
-	python main.py
+	MLFLOW_TRACKING_URI=file:./mlruns python main.py

@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/fe1cd9be036a4e0b85e81542a94806c7/artifacts
+end_time: 1732482540290
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: fe1cd9be036a4e0b85e81542a94806c7
+run_name: worried-worm-184
+run_uuid: fe1cd9be036a4e0b85e81542a94806c7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732482538224
+status: 3
+tags: []
+user_id: codespace
