@@ -4,7 +4,7 @@ Test goes here
 """
 import pandas as pd
 import os
-
+from main import main 
 
 def test_dataset():
     """
