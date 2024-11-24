@@ -1,0 +1,15 @@
+artifact_uri: file:///workspaces/DEmini12/mlruns/0/34e9d1c61408484abbb14f20a2444cb0/artifacts
+end_time: 1732474657378
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 34e9d1c61408484abbb14f20a2444cb0
+run_name: auspicious-lynx-648
+run_uuid: 34e9d1c61408484abbb14f20a2444cb0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1732474647407
+status: 3
+tags: []
+user_id: codespace
