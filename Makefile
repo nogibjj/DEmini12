@@ -1,16 +1,21 @@
+SHELL := /bin/bash
+
+VENV_PATH := $(PWD)/venv
+PYTHON := $(VENV_PATH)/bin/python
+
 install:
-	pip install --upgrade pip &&\
-		pip install --no-cache-dir -r requirements.txt
+	python3 -m venv $(VENV_PATH) && \
+	$(PYTHON) -m pip install --upgrade pip && \
+	$(PYTHON) -m pip install --no-cache-dir -r requirements.txt
 
 test:
-	python -m pytest test_*.py
+	$(PYTHON) -m pytest test_*.py
 
 format:	
-	black *.py 
+	$(PYTHON) -m black *.py 
 
 lint:
-	pylint --disable=E,F,C,W *.py
-
+	$(PYTHON) -m pylint --disable=E,F,C,W *.py
 
 container-lint:
 	docker run --rm -i hadolint/hadolint < Dockerfile
@@ -18,25 +23,16 @@ container-lint:
 refactor: format lint
 
 deploy:
-	#deploy goes here
+	# deploy steps go here
 		
 all: install lint test format deploy
 
 generate_and_push:
-	# Create the markdown file 
-	python test_main.py  # Replace with the actual command to generate the markdown
-
-	# Add, commit, and push the generated files to GitHub
-	@if [ -n "$$(git status --porcelain)" ]; then \
-		git config --local user.email "Sammyissmiling@gmail.com"; \
-		git config --local user.name "GitHub Action"; \
-		git add .; \
-		git commit -m "Add SQL log"; \
-		git push; \
-	else \
-		echo "No changes to commit. Skipping commit and push."; \
-	fi
+	$(PYTHON) test_main.py
 
 ml_run:
-	source venv/bin/activate && \
-	MLFLOW_TRACKING_URI=file:./mlruns python main.py
+	$(PYTHON) -m pip install mlflow && \
+	export MLFLOW_TRACKING_URI=file:./mlruns && \
+	export MLFLOW_ARTIFACT_URI=file:./mlruns && \
+	mkdir -p mlruns && chmod -R u+w mlruns && \
+	$(PYTHON) main.py
