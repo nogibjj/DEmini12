@@ -39,40 +39,22 @@ jobs:
           source venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pylint pytest pytest-cov mlflow
+          pip install pylint pytest pytest-cov mlflow scikit-learn
 
       - name: Prepare MLflow directory
         run: |
           mkdir -p mlruns
           chmod -R u+w mlruns
+          ls -l ./data
 
       - name: Set MLflow environment variables
         run: |
-          echo "MLFLOW_TRACKING_URI=file:./mlruns" >> $GITHUB_ENV
-          echo "MLFLOW_ARTIFACT_URI=file:./mlruns" >> $GITHUB_ENV
-
-      - name: Debug MLflow paths
-        run: |
+          export MLFLOW_TRACKING_URI="file:./mlruns"
+          export MLFLOW_ARTIFACT_URI="file:./mlruns"
           echo "MLFLOW_TRACKING_URI=$MLFLOW_TRACKING_URI"
           echo "MLFLOW_ARTIFACT_URI=$MLFLOW_ARTIFACT_URI"
-          ls -ld ./mlruns
-          ls -l ./mlruns
-          whoami
-          id
-          echo "Current Directory: $(pwd)"
-
-      - name: Check Python environment
-        run: |
-          source venv/bin/activate
-          which python
-          python --version
-          pip list | grep mlflow
-          
-      - name: Debug environment variables
-        run: printenv | grep MLFLOW
-
+  
       - name: Run MLflow model
         run: |
-          ./venv/bin/python -m pip show mlflow
-          export MLFLOW_TRACKING_URI=file:./mlruns
-          ./venv/bin/python main.py
+          source venv/bin/activate
+          python main.py
